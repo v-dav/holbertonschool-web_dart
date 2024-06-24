@@ -3,6 +3,9 @@
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 
+![image](https://github.com/v-dav/holbertonschool-web_dart/assets/115344057/18323b08-a2cb-42cf-869c-119eb622cdae)
+
+
 This repository is dedicated to my journey of learning Dart and Flutter, aiming to build robust and visually appealing mobile applications.
 
 ## Project Overview
