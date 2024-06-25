@@ -1,20 +1,35 @@
 import '9-palindrome.dart';
 
-String longestPalindrome(String s) {
-  if (s.length < 3) {
-    return 'none';
-  }
+List findPalindromes(List<String> tab) {
+  var res = '';
+  var palindromes = [];
 
-  String longest = 'none';
+  for (int i = 0; i < tab.length; i++) {
+    for (int j = i; j < tab.length; j++) {
+      res += tab[j];
 
-  for (int i = 0; i < s.length; i++) {
-    for (int j = i + 3; j <= s.length; j++) {
-      String substring = s.substring(i, j);
-      if (isPalindrome(substring) && substring.length > longest.length) {
-        longest = substring;
+      if (isPalindrome(res)) {
+        palindromes.add(res);
+        i += res.length;
+        res = '';
+        break;
       }
     }
+    res = '';
   }
+  return palindromes;
+}
 
-  return longest == 'none' ? 'none' : longest;
+String longestPalindrome(String s) {
+  var tmp = s.split('');
+  var longest = '';
+  var palindromes = [];
+
+  if (isPalindrome(s)) { return s; }
+  
+  palindromes = findPalindromes(tmp);
+  palindromes.forEach((ele) {
+    longest = ele.length > longest.length ? ele: longest;
+  });
+  return longest != '' ? longest: 'none';
 }
