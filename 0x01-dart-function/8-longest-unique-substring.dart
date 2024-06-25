@@ -1,12 +1,19 @@
 String longestUniqueSubstring(String str) {
-  if (str == "") return "";
-  String substring = str[0];
-  for (int i = 1; i < str.length; i++) {
-    if (str[i] == substring || substring.contains(str[i])) {
-      substring = str[i];
-      continue;
+  int start = 0, maxLength = 0, maxStart = 0;
+  Map<String, int> charIndex = {};
+
+  for (int end = 0; end < str.length; end++) {
+    if (charIndex.containsKey(str[end]) && charIndex[str[end]]! >= start) {
+      start = charIndex[str[end]]! + 1;
     }
-    substring += str[i];
+
+    if (end - start + 1 > maxLength) {
+      maxLength = end - start + 1;
+      maxStart = start;
+    }
+
+    charIndex[str[end]] = end;
   }
-  return substring;
+
+  return str.substring(maxStart, maxStart + maxLength);
 }
