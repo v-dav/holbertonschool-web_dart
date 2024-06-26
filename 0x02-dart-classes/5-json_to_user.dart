@@ -12,10 +12,10 @@ class User {
 
   Map toJson() {
     return {
+      "id": this.id,
       "name": this.name,
       "age": this.age,
-      "height": this.height,
-      "id": this.id
+      "height": this.height
     };
   }
 
