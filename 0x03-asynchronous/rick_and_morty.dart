@@ -6,7 +6,9 @@ Future<void> printRmCharacters() async {
     final response =
         await http.get(Uri.parse("https://rickandmortyapi.com/api/character"));
     final characters = jsonDecode(response.body)["results"];
-    characters.forEach((character) => print(character["name"]));
+    for (final character in characters) {
+      print(character["name"]);
+    }
   } catch (error) {
     print("error caught: $error");
   }
